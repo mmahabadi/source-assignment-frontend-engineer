@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Head grower",
+        "description": "Can view and edit everything of the cultivation and manage the team."
+    },
+    {
+        "id": 2,
+        "name": "Grower",
+        "description": "Can view and edit everything of the cultivation."
+    },
+    {
+        "id": 3,
+        "name": "Observer",
+        "description": "Can view the crop plan, KPI’s, scenario’s, yield predictions and harvested kilo’s of the cultivation."
+    },
+    {
+        "id": 4,
+        "name": "Guest",
+        "description": "Can view the KPI’s of the cultivation."
+    },
+    {
+        "id": 5,
+        "name": "Wholesaler",
+        "description": "Can view the yield predictions and harvested kilo’s of the cultivation."
+    }
+]
