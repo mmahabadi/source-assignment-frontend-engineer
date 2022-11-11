@@ -60,14 +60,28 @@ You can use the following endpoints:
 }
 ```
 
-#### Cultivation users
-
-`GET /cultivation-users/<cultivation_id>`: get a list of users with roles for the cultivation.
+#### Get cultivations
+`GET /cultivations`: get a list of cultivations.
 
 *Response*
 ```
 [
     {
+        "id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
+        "name": "Cultivation for assignment"
+    }
+[
+```
+
+#### Cultivation users
+
+`GET /cultivation/<cultivation_id>/users`: get a list of users with roles for the cultivation.
+
+*Response*
+```
+[
+    {
+        "cultivation_id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
         "role": {
             "id": 1,
             "name": "Head grower"
@@ -81,7 +95,7 @@ You can use the following endpoints:
 ]
 ```
 
-`POST /cultivation-users/<cultivation_id>`: add a user to the cultivation.
+`POST /cultivation/<cultivation_id>/users`: add a user to the cultivation.
 
 *Request body*
 ```
@@ -95,7 +109,7 @@ You can use the following endpoints:
 }
 ```
 
-`PUT /cultivation-users/<cultivation_id>`: update the role of a user in the cultivation.
+`PUT /cultivation/<cultivation_id>/users`: update the role of a user in the cultivation.
 
 *Request body*
 ```
@@ -109,7 +123,7 @@ You can use the following endpoints:
 }
 ```
 
-`DELETE /cultivation-users/<cultivation_id>`: remove the role of a user in the cultivation.
+`DELETE /cultivation/<cultivation_id>/users`: remove the role of a user in the cultivation.
 
 *Request body*
 ```
@@ -161,7 +175,7 @@ Your solution should include the following functionality:
 1. Consume the provided API to collect the data
 2. Show a list of cultivation users
 3. Have a modal to select users to add to the cultivation
-4. Be able to to update the role of a cultivation user
+4. Be able to update the role of a cultivation user
 5. Have a button to delete the user from the cultivation
 
 ### Non-functional requirements
