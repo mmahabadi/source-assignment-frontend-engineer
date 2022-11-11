@@ -1,5 +1,6 @@
 [
     {
+        "cultivation_id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
         "role": {
             "id": 1,
             "name": "Head grower"
@@ -10,6 +11,7 @@
         }
     },
     {
+        "cultivation_id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
         "role": {
             "id": 3,
             "name": "Observer"
@@ -20,6 +22,7 @@
         }
     },
     {
+        "cultivation_id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
         "role": {
             "id": 3,
             "name": "Observer"
@@ -30,6 +33,7 @@
         }
     },
     {
+        "cultivation_id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
         "role": {
             "id": 2,
             "name": "Grower"
@@ -40,6 +44,7 @@
         }
     },
     {
+        "cultivation_id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
         "role": {
             "id": 5,
             "name": "Wholesaler"
