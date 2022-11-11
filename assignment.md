@@ -8,11 +8,11 @@ practice. To do so, we ask that you build a React app for a hypothetical part of
 
 To manage a cultivation in the greenhouse, users can be assigned to a cultivation. Depending on their role, they have certain permissions on the cultivation.
 
-In the cultivation team settings the company admins can manage which users have access to the cultivation with which role.
+In the cultivation team settings, the company admins can manage which users have access to the cultivation with which role.
 
 [<img src="./design/cultivation-team.png" width="200" align="right" style="margin-left: 20px" />](./design/cultivation-team.png)
 
-When the user opens the cultivation team page an overview of the assigned users with their role is showed. It shows a table with the name of the user, their role and a button to remove them from the cultivation.
+When the user opens the cultivation team page, an overview of the assigned users with their role is shown. It shows a table with the name of the user, their role and a button to remove them from the cultivation.
 
 (*Click the screenshot to enlarge*)
 
@@ -21,7 +21,7 @@ When the user opens the cultivation team page an overview of the assigned users 
 
 [<img src="./design/add-team-member.png" width="150" align="right" style="margin-left: 20px" />](./design/add-team-member.png)
 
-Below the table we see an "Add teammember" button, with which we can add a user to this cultivation. When the button is clicked a modal should open with a searchable list of all users. The user can select one or more users and add them to the cultivation team. When they are added, they automatically get the "Observer" role.
+Below the table we see an "Add teammember" button, with which we can add a user to this cultivation. When the button is clicked, a modal should open with a searchable list of all users. The user can select one or more users and add them to the cultivation team. When they are added, they automatically get the "Observer" role.
 
 <br clear="right"/>
 <br />
@@ -34,15 +34,17 @@ The role of an existing cultivation team member can be changed by clicking on it
 
 ## Data
 
-We will provide an API which will contain all data you need to complete this assignment.
+We provide an API which will provide all data you need to complete this assignment, including endpoints to change the 
+data. The link to this API has been shared in the assignment email.
 
 ### API
 
-The data can be requested from the API. The base URL for this API is mentioned in the invitation email for the tech assignment.
+The provided API is a mock-API and as such has little to no data validation. Keep this in mind!
 
 You can use the following endpoints:
 
 #### Create cultivation
+
 `POST /cultivations`: create a new cultivation. The ID this endpoint returns can be used for this assignment.
 
 *Request body*
@@ -55,19 +57,39 @@ You can use the following endpoints:
 *Response*
 ```
 {
-    "id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
+    "id": "1",
     "name": "Cultivation for assignment"
 }
 ```
 
-#### Cultivation users
+#### List cultivations
 
-`GET /cultivation-users/<cultivation_id>`: get a list of users with roles for the cultivation.
+`GET /cultivations`: list all known cultivations
 
 *Response*
 ```
 [
     {
+        "id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
+        "name": "Cultivation for assignment"
+    },
+    {
+        "id": "9ac45c32-64f1-4a27-b554-e3544cbbe002",
+        "name": "Cultivation for assignment 2"
+    },
+    ...
+[
+```
+
+#### Cultivation users
+
+`GET /cultivations/<cultivation_id>/users`: get a list of users with roles for the cultivation.
+
+*Response*
+```
+[
+    {
+        "cultivation_id": "9ac45c32-64f1-4a27-b554-e3544cbbe001",
         "role": {
             "id": 1,
             "name": "Head grower"
@@ -81,47 +103,34 @@ You can use the following endpoints:
 ]
 ```
 
-`POST /cultivation-users/<cultivation_id>`: add a user to the cultivation.
+`POST /cultivations/<cultivation_id>/users`: add a user to the cultivation.
 
 *Request body*
 ```
 {
-    "role": {
-        "id": 1
-    },
-    "user": {
-        "id": 48
-    }
+	"role": {
+		"id": 2
+	},
+	"user": {
+		"id": 1
+	}
 }
 ```
 
-`PUT /cultivation-users/<cultivation_id>`: update the role of a user in the cultivation.
+`PUT /cultivations/<cultivation_id>/users/<user_id>`: update the role of a user in the cultivation.
 
 *Request body*
 ```
 {
-    "role": {
-        "id": 2
-    },
-    "user": {
-        "id": 48
+	"role": {
+        "id": 3
     }
 }
 ```
 
-`DELETE /cultivation-users/<cultivation_id>`: remove the role of a user in the cultivation.
+`DELETE /cultivations/<cultivation_id>/users/<user_id>`: remove a user from a cultivation
 
-*Request body*
-```
-{
-    "role": {
-        "id": 2
-    },
-    "user": {
-        "id": 48
-    }
-}
-```
+*No request body needed*
 
 #### Users
 
@@ -161,7 +170,7 @@ Your solution should include the following functionality:
 1. Consume the provided API to collect the data
 2. Show a list of cultivation users
 3. Have a modal to select users to add to the cultivation
-4. Be able to to update the role of a cultivation user
+4. Be able to update the role of a cultivation user
 5. Have a button to delete the user from the cultivation
 
 ### Non-functional requirements
