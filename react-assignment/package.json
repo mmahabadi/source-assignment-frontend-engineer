@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nx serve react-assignment",
+    "build": "nx build react-assignment --configuration=production",
     "test:ui-kit": "nx test ui-kit"
   },
   "private": true,
