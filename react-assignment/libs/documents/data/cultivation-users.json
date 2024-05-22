@@ -1,0 +1,52 @@
+[
+    {
+        "role": {
+            "id": 1,
+            "name": "Head grower"
+        },
+        "user": {
+            "id": 48,
+            "name": "Amaleta Brearton"
+        }
+    },
+    {
+        "role": {
+            "id": 3,
+            "name": "Observer"
+        },
+        "user": {
+            "id": 69,
+            "name": "Leela Colhoun"
+        }
+    },
+    {
+        "role": {
+            "id": 3,
+            "name": "Observer"
+        },
+        "user": {
+            "id": 71,
+            "name": "Barclay Timbridge"
+        }
+    },
+    {
+        "role": {
+            "id": 2,
+            "name": "Grower"
+        },
+        "user": {
+            "id": 80,
+            "name": "Clio De Ruggiero"
+        }
+    },
+    {
+        "role": {
+            "id": 5,
+            "name": "Wholesaler"
+        },
+        "user": {
+            "id": 81,
+            "name": "Ezra Bennike"
+        }
+    }
+]
