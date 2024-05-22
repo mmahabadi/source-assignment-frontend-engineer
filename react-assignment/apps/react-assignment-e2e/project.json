@@ -1,0 +1,9 @@
+{
+  "name": "react-assignment-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/react-assignment-e2e/src",
+  "implicitDependencies": ["react-assignment"],
+  "// targets": "to see all targets run: nx show project react-assignment-e2e --web",
+  "targets": {}
+}
