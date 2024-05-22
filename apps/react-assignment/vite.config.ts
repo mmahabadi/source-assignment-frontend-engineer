@@ -25,7 +25,7 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: '../../dist/apps/react-assignment',
+    outDir: '../../dist',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
