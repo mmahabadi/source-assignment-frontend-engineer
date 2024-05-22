@@ -1,9 +1,9 @@
-import NxWelcome from './nx-welcome';
+import { Button } from '@ui-kit';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="react-assignment" />
+      <Button variant="outline">Button</Button>
     </div>
   );
 }
