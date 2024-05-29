@@ -10,6 +10,13 @@ export default defineConfig({
   server: {
     port: 4200,
     host: 'localhost',
+    proxy: {
+      '/api': {
+        target: 'https://14dtv3lu9k.execute-api.eu-central-1.amazonaws.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
 
   preview: {
