@@ -1,11 +1,11 @@
 import { ArrowDownIcon, Button, ToasterType, useToaster } from '@ui-kit';
 import { FC, useState } from 'react';
-import { useRoles } from '../../hooks/useRoles';
-import { Role, User } from '../../types';
+import { useRoles } from '../../../hooks/useRoles';
+import { Role, User } from '../../../types';
 import { useMutation } from '@tanstack/react-query';
-import { updateUserRole } from '../../services/user-service';
-import { queryClient } from '../../providers/query-client';
-import { RoleDropDownMenu } from './role-dropdown-menu';
+import { updateUserRole } from '../../../services/user-service';
+import { queryClient } from '../../../providers/query-client';
+import { RoleDropDownMenu } from '../dropdown/role-dropdown-menu';
 
 type propTypes = {
   cultivationId?: string;

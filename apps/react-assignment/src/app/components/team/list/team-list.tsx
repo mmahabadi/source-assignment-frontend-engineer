@@ -2,8 +2,8 @@ import { QueryFunctionContext, useQuery } from '@tanstack/react-query';
 import { ToasterType, useToaster } from '@ui-kit';
 import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCultivationUsers } from '../../services/cultivation-service';
-import { TeamTable } from './team-table';
+import { fetchCultivationUsers } from '../../../services/cultivation-service';
+import { TeamTable } from '../list/team-table';
 
 const TeamList: FC = () => {
   const { id } = useParams();

@@ -10,6 +10,7 @@ import { Team } from './components/team/team';
 import { AddUserModal } from './components/users/user-modal-add';
 import { ToasterProvider } from '@ui-kit';
 import { RemoveUserModal } from './components/users/user-modal-remove';
+import { AddCultivationModal } from './components/cultivations/new/cultivation-modal-add';
 
 const router = createBrowserRouter([
   {
@@ -17,19 +18,25 @@ const router = createBrowserRouter([
     element: <Navigate to="/cultivations" />,
   },
   {
-    path: '/cultivations',
+    path: 'cultivations',
     element: <Cultivations />,
+    children: [
+      {
+        path: 'new',
+        element: <AddCultivationModal />,
+      },
+    ],
   },
   {
     path: '/cultivations/:id',
     element: <Team />,
     children: [
       {
-        path: '/cultivations/:id/add-user',
+        path: 'add-user',
         element: <AddUserModal />,
       },
       {
-        path: '/cultivations/:id/remove-user/:userId',
+        path: 'remove-user/:userId',
         element: <RemoveUserModal />,
       },
     ],

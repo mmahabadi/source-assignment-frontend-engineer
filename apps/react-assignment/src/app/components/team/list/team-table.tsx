@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import { DataTable, dataTableAction, dataTableColumn } from '@ui-kit';
 import { useNavigate, useParams } from 'react-router-dom';
-import { CultivateUser } from '../../types';
-import { UserName } from './user-name';
-import { RoleDropDownContainer } from './role-dropdown-container';
+import { CultivateUser } from '../../../types';
+import { UserName } from '../user-name';
+import { RoleDropDownContainer } from '../dropdown/role-dropdown-container';
 
 type propTypes = {
   data: CultivateUser[];
@@ -17,7 +17,9 @@ const TeamTable: FC<propTypes> = ({ data, isLoading }) => {
   if (!data) return null;
 
   const handleRemove = (row: unknown) => {
-    navigate(`remove-user/${(row as CultivateUser).user.id}`, {
+    const userId = (row as CultivateUser).user.id;
+    if (!userId) return;
+    navigate(`remove-user/${userId}`, {
       relative: 'path',
     });
   };

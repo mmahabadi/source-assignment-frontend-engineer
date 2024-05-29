@@ -44,7 +44,7 @@ const DataTable = ({ loading, columns, data, actions }: propTypes) => {
   }
 
   if (!loading && !data.length) {
-    return <div>No data</div>;
+    return <div>There is no records</div>;
   }
 
   const prevHandler = () => page > 0 && setPage(page - 1);
@@ -58,7 +58,7 @@ const DataTable = ({ loading, columns, data, actions }: propTypes) => {
       <TableHeader className="bg-gray-100">
         <TableRow>
           <TableHead>#</TableHead>
-          {columns.map((column: dataTableColumn, index: number) => (
+          {columns.map((column: dataTableColumn) => (
             <TableHead key={`col-${column?.prop}`}>{column?.title}</TableHead>
           ))}
           {actions?.map((action: dataTableAction) => (

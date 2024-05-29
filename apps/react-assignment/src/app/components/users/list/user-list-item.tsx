@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { User } from '../../types';
-import { UserName } from '../team/user-name';
+import { User } from '../../../types';
+import { UserName } from '../../team/user-name';
 
 type propTypes = {
   user: User;

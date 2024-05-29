@@ -1,7 +1,7 @@
 import { BackIcon, Button, Panel } from '@ui-kit';
 import { FC } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { TeamList } from './team-list';
+import { TeamList } from './list/team-list';
 import { PlusIcon } from 'lucide-react';
 
 const Team: FC = () => {
@@ -12,17 +12,25 @@ const Team: FC = () => {
 
   const tools = (
     <Button
-      onClick={() => navigate('..')}
+      onClick={gotoNewUser}
       variant="default"
       className="flex items-center button pl-2 rounded-none"
     >
-      <BackIcon />
-      Back to cultivations list
+      <PlusIcon className="w-4 h-4 mr-2" />
+      Add team member
     </Button>
   );
 
   return (
     <>
+      <Button
+        onClick={() => navigate('..')}
+        variant="default"
+        className="flex items-center button pl-2 rounded-none"
+      >
+        <BackIcon />
+        Back to cultivations list
+      </Button>
       <Outlet />
       <Panel
         title="Cultivation team"
@@ -30,16 +38,6 @@ const Team: FC = () => {
         tools={tools}
       >
         <TeamList />
-        <footer className="text-right">
-          <Button
-            onClick={gotoNewUser}
-            variant="default"
-            className="flex items-center button pl-2 rounded-none"
-          >
-            <PlusIcon className="w-4 h-4 mr-2" />
-            Add team member
-          </Button>
-        </footer>
       </Panel>
     </>
   );

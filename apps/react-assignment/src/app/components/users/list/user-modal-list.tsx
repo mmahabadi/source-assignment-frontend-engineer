@@ -2,13 +2,13 @@ import { FC, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 
-import { User } from '../../types';
+import { User } from '../../../types';
 import { UserListItem } from './user-list-item';
-import { UserSearchInput } from './user-search-input';
+import { UserSearchInput } from '../user-search-input';
 import { Button, ToasterType, useToaster } from '@ui-kit';
-import { queryClient } from '../../providers/query-client';
-import { addCultivationUsers } from '../../services/cultivation-service';
-import { useDefaultRole } from '../../hooks/useDefaultRole';
+import { queryClient } from '../../../providers/query-client';
+import { addCultivationUsers } from '../../../services/cultivation-service';
+import { useDefaultRole } from '../../../hooks/useDefaultRole';
 import styles from './user-modal-list.module.css';
 
 type propTypes = {

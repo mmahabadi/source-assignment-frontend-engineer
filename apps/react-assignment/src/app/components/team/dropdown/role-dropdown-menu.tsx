@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Role } from '../../types';
+import { Role } from '../../../types';
 
 type propTypes = {
   roles: Role[];

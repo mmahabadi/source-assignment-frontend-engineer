@@ -3,7 +3,7 @@ import { LoadingIndicator, Modal, ToasterType, useToaster } from '@ui-kit';
 import { FC, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchUsers } from '../../services/user-service';
-import { UsersList } from './user-modal-list';
+import { UsersList } from './list/user-modal-list';
 
 const AddUserModal: FC = () => {
   const navigate = useNavigate();

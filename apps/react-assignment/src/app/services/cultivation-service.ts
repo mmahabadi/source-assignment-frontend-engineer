@@ -111,3 +111,25 @@ export async function removeCultivationUser({
     throw new Error('An error occurred while removing the cultivation user');
   }
 }
+
+export async function addCultivation({
+  name,
+}: {
+  name: string;
+}): Promise<unknown> {
+  const url = '/api/cultivations';
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name,
+    }),
+  });
+  if (!response.ok) {
+    throw new Error('An error occurred while adding the cultivation');
+  }
+
+  return await response.json();
+}
