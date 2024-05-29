@@ -34,7 +34,7 @@ const Panel: FC<PanelProps> = ({ title, description, tools, children }) => {
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
       <CardContent className="py-4 px-6">{content}</CardContent>
-      {footer && <CardFooter className="border-t p-6">{footer}</CardFooter>}
+      {footer && <CardFooter className="border-t p-4">{footer}</CardFooter>}
     </Card>
   );
 };

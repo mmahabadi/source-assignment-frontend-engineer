@@ -4,9 +4,11 @@ type ButtonProps = {
   variant: 'default' | 'link' | 'primary' | 'danger';
   className?: string;
   disabled?: boolean;
-  onClick?: () => void;
   children?: React.ReactNode;
   loading?: boolean;
+  onClick?: () => void;
+  onMouseOut?: () => void;
+  onMouseOver?: () => void;
 };
 
 const Button: FC<ButtonProps> = ({

@@ -30,7 +30,7 @@ const Team: FC = () => {
         tools={tools}
       >
         <TeamList />
-        <header className="text-right mb-3">
+        <footer className="text-right">
           <Button
             onClick={gotoNewUser}
             variant="default"
@@ -39,7 +39,7 @@ const Team: FC = () => {
             <PlusIcon className="w-4 h-4 mr-2" />
             Add team member
           </Button>
-        </header>
+        </footer>
       </Panel>
     </>
   );

@@ -14,3 +14,4 @@ export * from './icons/SuccessIcon';
 export * from './icons/WarningIcon';
 export * from './icons/SearchIcon';
 export * from './icons/BackIcon';
+export * from './icons/ArrowDownIcon';
