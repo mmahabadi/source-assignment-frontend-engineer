@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "nx serve react-assignment",
     "build": "nx build react-assignment --configuration=production",
-    "test:ui-kit": "nx test ui-kit"
+    "test": "nx test react-assignment",
+    "test:e2e": "npx playwright test  --config=apps/react-assignment-e2e/playwright.config.ts",
+    "test:e2e:ui": "npx playwright test --ui --config=apps/react-assignment-e2e/playwright.config.ts"
   },
   "private": true,
   "dependencies": {

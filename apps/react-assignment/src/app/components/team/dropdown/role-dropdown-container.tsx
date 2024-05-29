@@ -25,7 +25,7 @@ const RoleDropDownContainer: FC<propTypes> = ({
     onSuccess: () => {
       addToaster("User's role updated successfully.", ToasterType.SUCCESS);
       queryClient.invalidateQueries({
-        queryKey: ['cultivations'],
+        queryKey: ['cultivations', cultivationId, 'users'],
       });
     },
     onError: (error: Error) => {

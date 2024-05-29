@@ -31,7 +31,7 @@ const UsersList: FC<propTypes> = ({ users }) => {
         ToasterType.SUCCESS
       );
       queryClient.invalidateQueries({
-        queryKey: ['cultivations'],
+        queryKey: ['cultivations', cultivationId, 'users'],
       });
     },
     onError: (error: Error) => {
