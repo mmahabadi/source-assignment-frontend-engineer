@@ -1,0 +1,12 @@
+.listContainer{
+    @apply w-full mx-auto p-6
+}
+.scrollableArea{
+    @apply max-h-64 overflow-y-auto
+}
+.list{
+    @apply divide-y divide-gray-100
+}
+.footer{
+    @apply border-t p-3 text-right
+}
