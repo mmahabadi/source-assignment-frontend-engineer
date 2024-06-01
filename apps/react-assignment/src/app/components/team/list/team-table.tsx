@@ -9,10 +9,10 @@ import { RoleDropDownContainer } from '../dropdown/role-dropdown-container';
 type propTypes = {
   data: CultivateUser[];
   isLoading: boolean;
+  cultivationId: string;
 };
-const TeamTable: FC<propTypes> = ({ data, isLoading }) => {
+const TeamTable: FC<propTypes> = ({ data, isLoading, cultivationId }) => {
   const navigate = useNavigate();
-  const { id: cultivationId } = useParams();
 
   if (!data) return null;
 

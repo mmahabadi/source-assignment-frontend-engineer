@@ -1,26 +1,21 @@
-import { QueryFunctionContext, useQuery } from '@tanstack/react-query';
-import { ToasterType, useToaster } from '@ui-kit';
-import { FC, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { fetchCultivationUsers } from '../../../services/cultivation-service';
+import { ErrorBlock } from '@ui-kit';
+import { FC } from 'react';
+import { useCultivationUsers } from '../../../hooks/useCultivationUsers';
 import { TeamTable } from '../list/team-table';
 
 const TeamList: FC = () => {
-  const { id } = useParams();
-  const { addToaster } = useToaster();
-  const { data, isError, isLoading, error } = useQuery({
-    queryKey: ['cultivations', id, 'users'],
-    queryFn: ({ signal, queryKey }: QueryFunctionContext) =>
-      fetchCultivationUsers({ signal, id: queryKey[1] as string }),
-  });
+  const { cultivationId, cultivationUsers, isLoading } = useCultivationUsers();
 
-  useEffect(() => {
-    if (isError) {
-      addToaster(error?.message || 'Failed to fetch data.', ToasterType.ERROR);
-    }
-  }, [isError, error, addToaster]);
+  if (!cultivationId)
+    return <ErrorBlock title="Error" message="Cultivation not found" />;
 
-  return <TeamTable isLoading={isLoading} data={data || []} />;
+  return (
+    <TeamTable
+      cultivationId={cultivationId}
+      isLoading={isLoading}
+      data={cultivationUsers || []}
+    />
+  );
 };
 
 export { TeamList };

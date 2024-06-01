@@ -1,5 +1,5 @@
 import { Button, ErrorBlock } from '@ui-kit';
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 
 type propTypes = {
   loading: boolean;
@@ -7,12 +7,14 @@ type propTypes = {
   onSubmit: (name: string) => void;
 };
 const CultivationForm: FC<propTypes> = ({ loading, onCancel, onSubmit }) => {
-  const [name, setName] = useState('');
   const [error, setError] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (event?: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
+    const name = inputRef.current?.value;
     if (!name) {
+      inputRef.current?.focus();
       setError(true);
       return;
     }
@@ -30,8 +32,7 @@ const CultivationForm: FC<propTypes> = ({ loading, onCancel, onSubmit }) => {
             Name
           </label>
           <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            ref={inputRef}
             required
             type="text"
             className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"

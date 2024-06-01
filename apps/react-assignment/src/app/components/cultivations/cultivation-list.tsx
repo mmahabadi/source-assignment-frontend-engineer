@@ -1,29 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
-import {
-  DataTable,
-  ToasterType,
-  dataTableAction,
-  dataTableColumn,
-  useToaster
-} from '@ui-kit';
-import { FC, useEffect } from 'react';
+import { DataTable, dataTableAction, dataTableColumn } from '@ui-kit';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchCultivatios } from '../../services/cultivation-service';
+import { useCultivations } from '../../hooks/useCultivations';
 import { Cultivation } from '../../types';
 
 const CultivationList: FC = () => {
   const navigate = useNavigate();
-  const { addToaster } = useToaster();
-  const { data, isError, isLoading, error } = useQuery({
-    queryKey: ['cultivations'],
-    queryFn: ({ signal }) => fetchCultivatios({ signal }),
-  });
-
-  useEffect(() => {
-    if (isError) {
-      addToaster(error?.message || 'Failed to fetch data.', ToasterType.ERROR);
-    }
-  }, [isError, error, addToaster]);
+  const { cultivations, isLoading } = useCultivations();
 
   const handleOnClick = (row: unknown) => {
     navigate(`${(row as Cultivation).id}`, { relative: 'path' });
@@ -44,10 +27,10 @@ const CultivationList: FC = () => {
 
   return (
     <DataTable
-      key={data?.length}
+      key={cultivations?.length}
       loading={isLoading}
       columns={columns}
-      data={data || []}
+      data={cultivations || []}
       actions={actions}
     />
   );
